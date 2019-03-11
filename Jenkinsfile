@@ -7,7 +7,7 @@ stages
 	steps 
 		{
 		echo "Building..."
-		sh 'mvn clean install'
+		sh 'mvn clean install -DskipTests'
 		echo "Building complete."
 		}	
 	}
