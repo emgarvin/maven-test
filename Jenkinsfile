@@ -29,5 +29,9 @@ stages
 		echo "Deployed."
 		}
 	}
+    post {
+        always {
+            archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+        }
 }
 }
