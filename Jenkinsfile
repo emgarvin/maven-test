@@ -7,6 +7,7 @@ stages
 	steps 
 		{
 		echo "Building..."
+		sh 'mvn clean install'
 		echo "Building complete."
 		}	
 	}
