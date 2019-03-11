@@ -1,7 +1,7 @@
 pipeline {
 	agent any
 	
-	stage('Build')
+	stage("Build")
 	{
 	steps 
 		{
@@ -10,7 +10,7 @@ pipeline {
 		}	
 	}
 
-	stage('Test')
+	stage("Test")
 	{
 	steps 
 		{	
@@ -19,7 +19,7 @@ pipeline {
 		}
 	}
 
-	stage('Deploy')
+	stage("Deploy")
 	{
 	steps
 		{	
