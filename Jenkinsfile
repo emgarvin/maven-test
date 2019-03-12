@@ -46,7 +46,7 @@ stages
 	
 	steps
 		{	
-			withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) 
+			withDockerRegistry([ credentialsId: "dockerHub", url: "" ]) 
 			{
 			echo "Dockering..."
 			sh 'docker build -t in-jenkins-image .'
