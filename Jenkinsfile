@@ -50,7 +50,7 @@ stages
 			{
 			echo "Dockering..."
 			sh 'docker build -t in-jenkins-image .'
-			sh 'docker push emgar/firstimage:latest'
+			sh 'docker push emgar/jenkins-test:latest'
 			echo "Docker made."
 			}
 		}
