@@ -41,7 +41,6 @@ stages
 	agent {
 		docker {
 			image 'docker:latest'	
-			args '-v jenkins_home:/var/jenkins_home'
 			}
 		}
 	}
