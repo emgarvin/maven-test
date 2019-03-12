@@ -49,7 +49,7 @@ stages
 			withDockerRegistry([ credentialsId: "dockerHub", url: "" ]) 
 			{
 			echo "Dockering..."
-			sh 'docker build -t in-jenkins-image .'
+			sh 'docker build -t emgar/jenkins-test:latest .'
 			sh 'docker push emgar/jenkins-test:latest'
 			echo "Docker made."
 			}
