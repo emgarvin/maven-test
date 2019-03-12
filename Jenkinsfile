@@ -1,44 +1,54 @@
 pipeline {
-	agent
-	{
-		docker {
-			image 'maven:3-alpine'
-	}
-	}
+
+agent none
 stages 
 {	
 	stage("Build")
 	{
+	agent {
+		docker {
+			image 'maven:3-alpine'
+			}
+		}
+
 	steps 
 		{
-		echo "Building..."
-		sh 'mvn clean install -DskipTests'
-		echo "Building complete."
+		echo "Compiling..."
+		sh 'mvn clean compile'
+		echo "Compilation complete."
 		}	
 	}
 
-	stage("Test")
+	stage("Package")
 	{
+	agent {
+		docker {
+			image 'maven:3-alpine'
+			}
+		}
 	steps 
 		{	
-		echo "Testing..."
-		echo "Testing complete."
+		echo "Packaging..."
+		sh 'mvn package'
+		sh 'ls -l'
+		echo "Packaging complete."
 		}
 	}
 
-	stage("Deploy")
+	stage("Docker")
 	{
+	agent {
+		docker {
+			image 'docker:latest'
+		}
+	}
 	steps
 		{	
-		echo "Deploying..."
-		echo "Deployed."
+		echo "Dockering..."
+		sh 'docker build -t in-jenkins-image .'
+		sh 'ls -l'
+		echo "Docker made."
 		}
 	}
         }
     
-	post {
-        always {
-            archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
-	}
-	}
-}
