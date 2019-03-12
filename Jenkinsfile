@@ -40,8 +40,7 @@ stages
 	{
 	agent {
 		docker {
-			image 'docker:latest'
-			
+			image 'docker:latest'	
 			args '-v jenkins_home:/var/jenkins_home'
 			}
 		}
@@ -54,6 +53,6 @@ stages
 		echo "Docker made."
 		}
 	}
-        }
+        
     
 }
