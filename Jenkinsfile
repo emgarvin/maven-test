@@ -24,7 +24,7 @@ stages
 	agent {
 		docker {
 			image 'maven:3-alpine'
-			volume 'jenkins_home:/var/jenkins_home'
+			args '-v jenkins_home:/var/jenkins_home'
 			}
 		}
 	steps 
@@ -41,6 +41,9 @@ stages
 	agent {
 		docker {
 			image 'docker:latest'
+			
+			args '-v jenkins_home:/var/jenkins_home'
+			}
 		}
 	}
 	steps
