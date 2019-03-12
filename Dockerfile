@@ -1,4 +1,4 @@
-FROM docker:latest
+FROM openjdk:latest
 VOLUME /var/jenkins_home
 COPY target/maventest-1.0-SNAPSHOT.jar .
 RUN echo "hello from docker"
