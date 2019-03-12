@@ -46,10 +46,13 @@ stages
 	
 	steps
 		{	
-		echo "Dockering..."
-		sh 'docker build -t in-jenkins-image .'
-		sh 'ls -l'
-		echo "Docker made."
+			withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) 
+			{
+			echo "Dockering..."
+			sh 'docker build -t in-jenkins-image .'
+			sh 'docker push emgar/firstimage:latest'
+			echo "Docker made."
+			}
 		}
 	}
 }
