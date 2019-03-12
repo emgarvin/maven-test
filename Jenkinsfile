@@ -43,7 +43,7 @@ stages
 			image 'docker:latest'	
 			}
 		}
-	}
+	
 	steps
 		{	
 		echo "Dockering..."
@@ -52,6 +52,7 @@ stages
 		echo "Docker made."
 		}
 	}
+}
         
     
 }
